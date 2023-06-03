@@ -1,45 +1,52 @@
 {
-  "name": "writer-bot",
-  "version": "4.0.0",
-  "description": "Discord bot for writing servers",
-  "main": "src/bot.js",
-  "scripts": {
-    "start": "node ./src/cluster.js",
-    "register": "node ./src/register.js",
-    "dev": "node ./src/register.js && node ./src/cluster.js",
-    "update": "node ./src/update.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/writer-bot/writer-bot.git"
-  },
-  "keywords": [
-    "discord",
-    "bot",
-    "discord-bot",
-    "writing"
-  ],
-  "author": "Conn Warwicker",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/writer-bot/writer-bot/issues"
-  },
-  "homepage": "https://github.com/writer-bot/writer-bot#readme",
-  "dependencies": {
-    "@discordjs/rest": "^1.2.0",
-    "chalk": "^4.1.2",
-    "discord-hybrid-sharding": "^2.1.0",
-    "discord.js": "^14.5.0",
-    "dotenv": "^16.0.3",
-    "human-date": "^1.4.0",
-    "mariadb": "^3.0.1",
-    "moment": "^2.29.4",
-    "node-fetch": "^2.6.8",
-    "uuid": "^9.0.0",
-    "winston": "^3.8.2",
-    "winston-daily-rotate-file": "^4.7.1"
-  },
-  "devDependencies": {
-    "eslint": "^8.24.0"
-  }
+	"name": "writer-bot",
+	"version": "4.1.0",
+	"description": "Discord bot for writing servers",
+	"main": "src/cluster.js",
+	"scripts": {
+		"start": "node ./src/cluster.js",
+		"register": "node ./src/register.js",
+		"dev": "node ./src/clear.js && node ./src/register.js && node ./src/cluster.js",
+		"update": "npm update && npm audit fix && npm fund && npm outdated && node ./src/update.js",
+		"lint": "eslint . --ext .js",
+		"git": "git fetch && git pull"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/14sprouj/writer-bot-js.git"
+	},
+	"keywords": [
+		"discord",
+		"bot",
+		"discord-bot",
+		"writing"
+	],
+	"author": "Conn Warwicker && Joel Sprouse",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/writer-bot/writer-bot/issues"
+	},
+	"homepage": "https://github.com/writer-bot/writer-bot#readme",
+	"dependencies": {
+		"@discordjs/rest": "^1.2.0",
+		"chalk": "^4.1.2",
+		"discord-api-types": "^0.37.28",
+		"discord-hybrid-sharding": "^2.1.0",
+		"discord-xp": "^1.1.16",
+		"discord.js": "^14.9.0",
+		"dotenv": "^16.0.3",
+		"human-date": "^1.4.0",
+		"mariadb": "^3.0.1",
+		"moment": "^2.29.4",
+		"mysql2": "^3.2.3",
+		"node-fetch": "^2.6.8",
+		"nodemailer": "^6.9.1",
+		"uuid": "^9.0.0",
+		"winston": "^3.8.2",
+		"winston-daily-rotate-file": "^4.7.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.24.0",
+		"jest": "^29.1.2"
+	}
 }
