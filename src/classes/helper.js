@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("node:path");
+const {logger} = require("../utils/logger");
 
 class Helper {
 
@@ -110,7 +111,7 @@ class Helper {
             }, {context: {chID: channelID, message: message}});
 
         } else {
-            console.error('[ERROR] Cannot send message ('+message+'). Neither interaction or client object present.');
+            logger.error('[ERROR] Cannot send message ('+message+'). Neither interaction or client object present.');
         }
 
     }

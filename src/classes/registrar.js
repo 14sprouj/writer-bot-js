@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { Routes } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const ConsoleWriter = require('./console')
