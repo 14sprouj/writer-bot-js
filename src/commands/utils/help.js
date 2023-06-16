@@ -1,30 +1,34 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const EmbeddedMessage = require('../../classes/embed');
 require('dotenv').config();
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('help')
-		.setDescription('Help with how to use the bot and its commands'),
-	execute(interaction, client) {
-		let author = `${interaction.user.username}#${interaction.user.discriminator}`;
-		if (interaction.user.discriminator === '0') {
-			author = `${interaction.user.username}`;
-		}
-		let avatarURL = "https://cdn.discordapp.com/embed/avatars/0.png";
-		if (client.user.avatar) {
-			avatarURL = interaction.user.avatarURL();
-		}
-		// Build embedded message with invite link.
-		const embed = new EmbedBuilder()
-			.setTitle('Help')
-			.setDescription('Use the above link to access the bot Wiki for help with commands')
-			.setURL(process.env.SUPPORT_SERVER)
-			.setColor("#567afe")
-			.setFooter({
-				text: `Requested by ${author}`,
-				iconURL: avatarURL
-			});
 
-		interaction.reply({ embeds: [embed] });
-	},
+    data: new SlashCommandBuilder()
+        .setName('help')
+        .setDescription('Help with how to use the bot and its commands'),
+
+    /**
+     * Execute the help command
+     * @param interaction
+     * @param client
+     * @returns {Promise<void>}
+     */
+    async execute(interaction, client) {
+
+        // Defer the reply.
+        await interaction.deferReply();
+
+        // Build embedded message with invite link.
+        const embed = new EmbeddedMessage(interaction.user)
+            .build({
+                title: 'Help',
+                description: 'Use the above link to access the bot Wiki for help with commands',
+                url: process.env.WIKI_URL,
+            });
+
+        await interaction.editReply({ embeds: [embed] });
+
+    }
+
 };
