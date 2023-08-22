@@ -4,7 +4,8 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({
     intents: [GatewayIntentBits.Guilds],
     shards: getInfo().SHARD_LIST,
-    shardCount: getInfo().TOTAL_SHARDS
+    shardCount: getInfo().TOTAL_SHARDS,
+    allowedMentions: {parse: ['users']}
 });
 
 client.cluster = new ClusterClient(client);
