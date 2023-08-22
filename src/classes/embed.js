@@ -25,6 +25,7 @@ class EmbeddedMessage {
             .setThumbnail(image)
             .setFooter({
                 text: `Requested by ${author}`,
+                text: `Requested by ${author}`,
                 iconURL: this.user.avatarURL()
             });
 

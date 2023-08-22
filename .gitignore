@@ -2,11 +2,5 @@
 node_modules
 test.*
 *.log
-
+*export-*.json
 !*.gitkeep
-process.json
-
-.vscode
-package-lock.json
-src/ca-certificate.crt
-package-lock.json
